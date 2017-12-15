@@ -167,7 +167,7 @@ public class IjDependencyListBuilder {
             .setData(
                 DependencyEntryData.builder()
                     .setName(name)
-                    .setScope(Scope.PROVIDED)
+                    .setScope(Scope.COMPILE)
                     .setExported(true)
                     .build())
             .build());
