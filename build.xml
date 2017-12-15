@@ -65,7 +65,7 @@
   <property name="gensrc.dir" value="${build.dir}/gen" />
   <property name="aosp.gensrc.dir" value="${build.dir}/aosp-gen" />
 
-  <property name="devbuild" value="0" />
+  <property name="devbuild" value="1" />
 
   <property name="buck.hash.dir" value="${build.dir}/classes/META-INF"/>
   <property name="buck.hash.file" value="${buck.hash.dir}/buck-binary-hash.txt"/>
