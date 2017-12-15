@@ -134,7 +134,7 @@ public class MavenUrlDecoder {
         return "-sources.jar";
 
       default:
-        return String.format("-%s.jar", type);
+        return "." + type;
     }
   }
 }
