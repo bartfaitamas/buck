@@ -433,7 +433,7 @@ public class HaskellCompileRule extends AbstractBuildRuleWithDeclaredAndExtraDep
    *     haskell compiler.
    */
   private Step prepareOutputDir(String name, Path root, String suffix) {
-    return new AbstractExecutionStep(String.format("preparing %s output dir", name)) {
+    return new AbstractExecutionStep(String.format("preparing %s output dir (suffix $s)", name, suffix)) {
       @Override
       public StepExecutionResult execute(ExecutionContext context)
           throws IOException, InterruptedException {
@@ -454,7 +454,7 @@ public class HaskellCompileRule extends AbstractBuildRuleWithDeclaredAndExtraDep
                       throws IOException {
                     Preconditions.checkState(!file.isAbsolute());
                     if (!allowedPaths.contains(file)) {
-                      LOG.verbose("cleaning " + file);
+                      LOG.debug("cleaning " + file);
                       getProjectFilesystem().deleteFileAtPath(file);
                     }
                     return super.visitFile(file, attrs);
@@ -466,7 +466,7 @@ public class HaskellCompileRule extends AbstractBuildRuleWithDeclaredAndExtraDep
                     Preconditions.checkState(!dir.isAbsolute());
                     if (!dir.equals(root)
                         && getProjectFilesystem().getDirectoryContents(dir).isEmpty()) {
-                      LOG.verbose("cleaning " + dir);
+                      LOG.debug("cleaning " + dir);
                       getProjectFilesystem().deleteFileAtPath(dir);
                     }
                     return super.postVisitDirectory(dir, exc);
