@@ -101,13 +101,13 @@ abstract class AbstractBuildTarget implements Comparable<AbstractBuildTarget> {
     if (getFlavors().isEmpty()) {
       return "";
     }
-    return "#" + getFlavorsAsString();
+    return "=" + getFlavorsAsString();
   }
 
   @JsonProperty("flavor")
   @JsonView(JsonViews.MachineReadableLog.class)
   private String getFlavorsAsString() {
-    return Joiner.on(",").join(getFlavors());
+    return Joiner.on("+").join(getFlavors());
   }
 
   /**
